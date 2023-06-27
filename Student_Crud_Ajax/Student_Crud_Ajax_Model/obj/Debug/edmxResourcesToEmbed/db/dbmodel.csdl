@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="studentcrudop_vkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="studentcrudop_vkEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Students" EntityType="studentcrudop_vkModel.Student" />
+    <FunctionImport Name="update_student">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="fname" Mode="In" Type="String" />
+      <Parameter Name="lname" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="phonenumber" Mode="In" Type="Int64" />
+      <Parameter Name="gender" Mode="In" Type="String" />
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+      <Parameter Name="role" Mode="In" Type="Int32" />
+      <Parameter Name="isdelete" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Update_students_data">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="fname" Mode="In" Type="String" />
+      <Parameter Name="lname" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="phoneno" Mode="In" Type="Int64" />
+      <Parameter Name="gender" Mode="In" Type="String" />
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+      <Parameter Name="role" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="phoneNumber" Type="Int64" />
+    <Property Name="gender" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="isDelete" Type="Boolean" />
+  </EntityType>
+</Schema>

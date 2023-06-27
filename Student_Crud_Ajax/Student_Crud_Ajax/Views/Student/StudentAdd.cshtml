@@ -1,0 +1,268 @@
+﻿@model Student_Crud_Ajax_Model.Studentcustom
+@{
+    ViewBag.Title = "StudentAdd";
+}
+
+<h2>Add Student</h2>
+
+
+
+<form id="myForm">
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" id="formDiv">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2", @placeholder = "" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2", @placeholder = "" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2", @placeholder = "" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2", @placeholder = "" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" value="male">
+                    <label class="form-check-label" ,@id="gender">Male</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" value="female">
+                    <label class="form-check-label",@id="gender">Female</label>
+                </div>
+                @Html.ValidationMessageFor(x => x.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UTYPE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(x => x.UTYPE, "Select UserType", new { @class = "form-control", @type = "Dropdown" })
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+
+     
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="reset" value="Add" class="btn btn-default" id="btnSubmit" />
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update()">Update</button>
+            </div>
+        </div>
+</form>
+<div class="text-primary">
+    @ViewBag.Message
+</div>
+</div>
+
+
+<div class="container">
+    <table class="table table-hover" id="studentData">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Firstame</th>
+                <th>Lastname</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Date</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#btnSubmit").click(function () {
+           
+           
+            var studentcustom = {
+                
+                FirstName: $("#FirstName").val(),
+                LastName: $("#LastName").val(),
+                Address: $("#Address").val(),
+                PhoneNumber: $("#PhoneNumber").val(),
+                Gender: $("input[type='radio'][name=gender]:checked").val(),
+                Date: $("#Date").val(),
+                UTYPE: $("#UTYPE").val(),
+                IsDelete: $("#IsDelete").val(),
+
+
+            }
+            console.log(studentcustom)
+            $.ajax({
+
+                type: "POST",
+                url: "/Student/StudentAdd",
+                data: studentcustom,
+                success: function (response) {
+                    console.log(response);
+
+                    
+                }
+
+            })
+        })
+
+
+        AllStudents = [];
+        $.ajax({
+            method: "GET",
+            url: "/Student/AllStudents",
+            success: function Result(res) {
+                data = JSON.parse(res);
+                console.log(data);
+                AllStudents.push(data);
+                console.log(AllStudents);
+                for (i = 1; i <= data.length; i++) {
+                    $('#studentData').append(`<tr><td>${data[i - 1].id}</td>
+                     <td>${data[i - 1].fname}</td><td>${data[i - 1].lname}</td><td>${data[i - 1].address}</td><td>${data[i - 1].phoneNumber}</td>
+                      <td>${data[i - 1].gender}</td><td>${data[i - 1].Date}</td><td>${data[i - 1].Role}</td>
+                      <td>
+                     @*@Html.ActionLink("Edit", "StudentAdd","Student")*@
+                       <button class="btn btn-success" value="${data[i - 1].id}" onclick=" GetbyID(${data[i - 1].id})">Edit</a>
+</button>
+                       <button class="btn btn-danger" value="${data[i - 1].id}" onclick=" Delete(${data[i - 1].id})">Delete</button></td>
+
+                     </tr>`)
+                }
+            }
+
+
+        })
+    });
+    var EditId = 0;
+    function GetbyID(Id) {
+        EditId = Id;
+        var data=[]
+        $.ajax({
+            url: "/Student/GetbyID/" + Id,
+            type: "GET",
+            dataType: "json",
+            success: function (result) {
+              
+                data = result
+                console.log(data)
+
+                $("#FirstName").val(data[0].fname)
+                $("#LastName").val(data[0].lname)
+                $("#Address").val(data[0].address)
+                $("#PhoneNumber").val(data[0].phoneNumber)
+                $("#Gender").val(data[0].gender)
+                $("#Date").val(data[0].Date)
+                $("#UTYPE").val(data[0].Role)
+              
+                $('#btnUpdate').show();
+                $('#btnSubmit').hide();
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+        return false;
+    }
+
+
+    function Update() {
+        //var res = validate();
+        //if (res == false) {
+        //    return false;
+        //}
+       
+        var student = {
+            Id: EditId,
+            FirstName: $("#FirstName").val(),
+            LastName: $("#LastName").val(),
+            
+            Address: $("#Address").val(),
+            PhoneNumber: $("#PhoneNumber").val(),
+            Gender: $("input[type='radio'][name=gender]:checked").val(),
+            Date: $("#Date").val(),
+            UTYPE: $("#UTYPE").val(),
+            IsDelete: $("#IsDelete").val(),
+
+        };
+        $.ajax({
+            url: "/Student/Updatestudent/",
+            data: student,
+            type: "POST",
+            
+            success: function (result) {
+                console.log(result);
+              
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+
+    function Delete(Id) {
+        console.log(Id);
+        $.ajax({
+            url: "/Student/Delete/" + Id,
+            data: Id,
+            type: "POST",
+
+            success: function (result) {
+                console.log(result);
+
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+
+    }
+
+</script>

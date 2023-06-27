@@ -1,0 +1,12 @@
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\bin\Debug\Student_Crud_Ajax_Model.dll.config
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\bin\Debug\Student_Crud_Ajax_Model.dll
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\bin\Debug\Student_Crud_Ajax_Model.pdb
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\bin\Debug\EntityFramework.dll
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\bin\Debug\EntityFramework.xml
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\obj\Debug\Student_Crud_Ajax_Model.csproj.AssemblyReference.cache
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\obj\Debug\Student_Crud_Ajax_Model.csproj.CoreCompileInputs.cache
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\obj\Debug\Student_Crud_Ajax_Model.csproj.CopyComplete
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\obj\Debug\Student_Crud_Ajax_Model.dll
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\obj\Debug\Student_Crud_Ajax_Model.pdb
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sit321\source\repos\Student_Crud_Ajax\Student_Crud_Ajax_Model\bin\Debug\EntityFramework.SqlServer.xml

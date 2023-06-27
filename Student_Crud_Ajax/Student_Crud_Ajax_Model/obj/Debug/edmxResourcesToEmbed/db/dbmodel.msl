@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="studentcrudop_vkModelStoreContainer" CdmEntityContainer="studentcrudop_vkEntities1">
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="studentcrudop_vkModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="update_student" FunctionName="studentcrudop_vkModel.Store.update_student" />
+    <FunctionImportMapping FunctionImportName="sp_Update_students_data" FunctionName="studentcrudop_vkModel.Store.sp_Update_students_data" />
+  </EntityContainerMapping>
+</Mapping>
