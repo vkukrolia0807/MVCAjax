@@ -1,0 +1,122 @@
+
+
+    function EditEmail() {
+
+        var rowId = $("#Id").val();
+
+        var to = $("#ToEmail").val();
+
+        //console.log(to);
+
+        var subject = $("#Subject").val();
+
+        //console.log(subject);
+
+        var message = $("#Message").val();
+
+        //console.log(message);
+
+        $.ajax({
+
+            type: 'POST',
+
+            url: '/Email/UpdateEmail?toEmail=' + to + "&&subject=" + subject + "&&body=" + message + "&&Id=" + rowId + "",
+
+            success: function (result) {
+
+                //console.log(result);
+
+                alert(result);
+
+                LoadTable();
+
+                $("#ToEmail").val('');
+
+                $("#Subject").val('');
+
+                $("#Message").val('');
+
+ 
+
+            },
+
+            error: function (result) {
+
+                alert(result);
+
+            }
+
+        })
+
+    }
+
+
+
+    function LoadTable() {
+
+        $("#EmailBody").html('');
+
+        $.ajax({
+
+            type: 'GET',
+
+            url: '/Email/LoadData',
+
+            success: function (res) {
+
+                console.log(res);
+
+                var row = "";
+
+                $.each(res, function (index, value) {
+
+                    row += `<tr><td>` + value.ToEmail + `</td><td>` + value.Subject + `</td><td>` + value.Body + `</td>
+
+                        <td><button type="button" class="btn btn-danger" data-id="` + value.Id + `" onclick="DeleteData(this)">Delete</button> | <button type="button" data-id="` + value.Id + `" class="btn btn-info" onclick="EditData(this)">Edit</button></td></tr>`;
+
+                });
+
+                //$("#EmailBody").find('tr:gt(0)').remove();
+
+                $("#EmailBody").append(row);
+
+            },
+
+            error: function () {
+
+                $("#EmailBody").html('');
+
+            }
+
+        })
+
+    }
+
+
+  userModel.DOBFormat = user.DOB.HasValue && user.DOB != null ? user.DOB.Value.ToString("yyyy-MM-dd") : "";
+
+[11:54 AM] Pooja Dattani
+
+        var isValid = true;
+
+        var txtFirstName = $("#txtFirstName").val();
+
+ 
+
+        if (txtFirstName == null || txtFirstName == undefined || txtFirstName == '') {
+
+            isValid = false;
+
+            $("#errorFirstName").show();
+
+        }
+
+        else {
+
+            $("#errorFirstName").hide();
+
+        }
+
+
+
+<Span class="errormessage", id="errorFirstName">Please enter first name</Span>
