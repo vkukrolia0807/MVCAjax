@@ -1,0 +1,72 @@
+﻿
+@model List<OrderManagement.Models.Context.orders>
+
+<div class="text-success">
+    @TempData["success"]
+</div>
+
+
+<div class="table-responsive">
+    <table class="table table-bordered" id="viewOrderTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Total Quantity</th>
+                <th>Amount</th>
+                <th>After Gst</th>
+                <th>Promo Code</th>
+                <th>Total Payable</th>
+                <th>CSGT</th>
+                <th>SGST</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody id="viewOrderBody">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.orderDate</td>
+                    <td>@item.orderTotalQty</td>
+                    <td>@item.orderAmount</td>
+                    <td>@item.afterGst</td>
+                    <td>flat 100</td>
+                    <td>@item.totalPayable</td>
+                    <td>5%</td>
+                    <td>5%</td>
+                    <td data-toggle="modal" data-target="#myModal" onclick="showData(this)">(i)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!--Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+    })
+    function showData(btn) {
+        $("#modalBody").empty();
+        $("#modalBody").append($(this).text();
+
+    }
+</script>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OrderManagementModelStoreContainer" CdmEntityContainer="OrderManagementEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="OrderManagementModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CouponCodeMaster">
+      <EntityTypeMapping TypeName="OrderManagementModel.CouponCodeMaster">
+        <MappingFragment StoreEntitySet="CouponCodeMaster">
+          <ScalarProperty Name="couponIsActive" ColumnName="couponIsActive" />
+          <ScalarProperty Name="couponUsageLimit" ColumnName="couponUsageLimit" />
+          <ScalarProperty Name="couponExpiryDate" ColumnName="couponExpiryDate" />
+          <ScalarProperty Name="couponPercentage" ColumnName="couponPercentage" />
+          <ScalarProperty Name="couponFlatAmount" ColumnName="couponFlatAmount" />
+          <ScalarProperty Name="couponType" ColumnName="couponType" />
+          <ScalarProperty Name="couponCode" ColumnName="couponCode" />
+          <ScalarProperty Name="couponId" ColumnName="couponId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="OrderManagementModel.Items">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="OrderManagementModel.orders">
+        <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="totalPayable" ColumnName="totalPayable" />
+          <ScalarProperty Name="afterGst" ColumnName="afterGst" />
+          <ScalarProperty Name="orderAmount" ColumnName="orderAmount" />
+          <ScalarProperty Name="orderTotalQty" ColumnName="orderTotalQty" />
+          <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+          <ScalarProperty Name="couponCode" ColumnName="couponCode" />
+          <ScalarProperty Name="itemId" ColumnName="itemId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

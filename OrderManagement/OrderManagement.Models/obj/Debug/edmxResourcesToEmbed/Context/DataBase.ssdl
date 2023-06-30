@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrderManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CouponCodeMaster">
+    <Key>
+      <PropertyRef Name="couponId" />
+    </Key>
+    <Property Name="couponId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="couponCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="couponType" Type="int" Nullable="false" />
+    <Property Name="couponFlatAmount" Type="int" />
+    <Property Name="couponPercentage" Type="int" />
+    <Property Name="couponExpiryDate" Type="date" Nullable="false" />
+    <Property Name="couponUsageLimit" Type="int" Nullable="false" />
+    <Property Name="couponIsActive" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="price" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="orderId" />
+    </Key>
+    <Property Name="orderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" />
+    <Property Name="itemId" Type="varchar" MaxLength="100" />
+    <Property Name="couponCode" Type="int" />
+    <Property Name="orderDate" Type="date" Nullable="false" />
+    <Property Name="orderTotalQty" Type="int" Nullable="false" />
+    <Property Name="orderAmount" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="afterGst" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="totalPayable" Type="decimal" Precision="12" Scale="2" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="lastName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__orders__couponCo__2E1BDC42">
+    <End Role="CouponCodeMaster" Type="Self.CouponCodeMaster" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CouponCodeMaster">
+        <PropertyRef Name="couponId" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="couponCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orders__userId__2D27B809">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OrderManagementModelStoreContainer">
+    <EntitySet Name="CouponCodeMaster" EntityType="Self.CouponCodeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__orders__couponCo__2E1BDC42" Association="Self.FK__orders__couponCo__2E1BDC42">
+      <End Role="CouponCodeMaster" EntitySet="CouponCodeMaster" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orders__userId__2D27B809" Association="Self.FK__orders__userId__2D27B809">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

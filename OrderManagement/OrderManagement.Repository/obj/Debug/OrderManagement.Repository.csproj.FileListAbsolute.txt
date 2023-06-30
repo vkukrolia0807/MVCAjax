@@ -1,0 +1,15 @@
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\bin\Debug\OrderManagement.Repository.dll.config
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\bin\Debug\OrderManagement.Repository.dll
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\bin\Debug\OrderManagement.Repository.pdb
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\bin\Debug\EntityFramework.dll
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\bin\Debug\OrderManagement.Models.dll
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\bin\Debug\OrderManagement.Models.pdb
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\bin\Debug\OrderManagement.Models.dll.config
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\bin\Debug\EntityFramework.xml
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\obj\Debug\OrderManagement.Repository.csproj.AssemblyReference.cache
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\obj\Debug\OrderManagement.Repository.csproj.CoreCompileInputs.cache
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\obj\Debug\OrderManagement.Repository.csproj.CopyComplete
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\obj\Debug\OrderManagement.Repository.dll
+C:\Users\sit324\source\repos\OrderManagement\OrderManagement.Repository\obj\Debug\OrderManagement.Repository.pdb
